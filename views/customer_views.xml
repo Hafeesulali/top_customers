@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="customer_details">
+            <t t-call="website.layout">
+                <div id="wrap" class="container py-5 h-100">
+                    <section class="vh-100" style="background-color: #707672;"
+                             data-vcss="001" data-snippet="s_website_form">
+                        <div class="container py-5 h-100">
+                            <div class="row d-flex justify-content-center align-items-center h-100">
+                                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                                    <div class="card shadow-2-strong"
+                                         style="border-radius: 1rem;">
+                                        <div class="card-body p-5 text-center">
+                                            <h3 class="mb-5">CUSTOMER DETAILS
+                                            </h3>
+                                            <div class="card-body p-5 p-lg-1 text-black">
+                                                <t t-foreach="customers or []"
+                                                   t-as="customer">
+                                                    <img class="card-img-top"
+                                                         t-attf-src="/web/image/res.partner/{{ customer.id }}/image_1920"
+                                                         alt="Card image cap"/>
+                                                    <strong>
+                                                        <t t-esc="customer.name"/>
+                                                    </strong>
+                                                    <br/>
+                                                    <t t-if="customer.phone">
+                                                        PHONE :
+                                                        <t t-esc="customer.phone"/>
+                                                    </t>
+                                                    <br/>
+                                                    <t t-if="customer.email">
+                                                        EMAIL:
+                                                        <t t-esc="customer.email"/>
+                                                    </t>
+                                                    <br/>
+                                                    <t t-if="customer.website">
+                                                        WEBSITE:
+                                                        <t t-esc="customer.website"/>
+                                                    </t>
+                                                    <br/>
+                                                </t>
+                                            </div>
+                                            <a t-attf-href="/"
+                                               name="create">back to home
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            </t>
+        </template>
+    </data>
+</odoo>
